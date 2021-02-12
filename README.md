@@ -1,26 +1,44 @@
 # Name MC
+
 The unofficial Node JS API for looking up Minecraft users on [NameMC](https://namemc.com/)
 
 ## Searching by username
+
 ```javascript
-import { lookupName } from "namemc"; // require works aswell
+const { lookupName } = require("namemc");
 
 // Search users
 const users = await lookupName("tehpicix");
+
+//or
+
+await lookupName("tehpicix").then((user) => {
+  // Handle Data
+});
+
 // Returns Array<Object> - an array of users from search results
 // Results are ordered as they are on Name MC so you may need to filter your response
 ```
 
 ## Searching by UUID
+
 ```javascript
-import { lookupUUID } from "namemc"; // require works aswell
+const { lookupUUID } = require("namemc");
 
 // Lookup user
 const user = await lookupUUID("1eb084b8-588e-43e6-bdd3-e05e53682987");
+
+//or
+
+await lookupUUID("1eb084b8-588e-43e6-bdd3-e05e53682987").then((user) => {
+  // Handle Data
+});
+
 // Returns Object - the user associated with that UUID
 ```
 
 ### Example Object response
+
 ```javascript
 {
   profileId: 'TehPicix.1',
